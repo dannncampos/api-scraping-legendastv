@@ -4,13 +4,11 @@
 - Autor: Daniel Campos
 - Data: 01/03/2021
 
-# ![link-de-imagem-do-projeto]()
-
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
 ## Crawlers desenvolvidos para a API
 
-| Legendas TV => Busca de legendas por termo |
+- **Legendas TV** => Busca de legendas por termo
 
 ## Disclaimer
 
@@ -22,23 +20,19 @@ A aplicação suporta login do usuário e pesquisa por termo ou título de filme
 
 #### Endpoints
 
-- **/legendastv/**
-Legendas TV API
-    Argumento**¹**: 
-                    term (str) - The term to search. 
-                    user (str): Legendas Tv User's Login. 
-                    password (str): Legendas Tv User's Password.
+**/legendastv/term** - Legendas TV API - **Argumentos****¹**:
+
+- *term (str)*: The term to search.
+- *user (str)*: Legendas Tv User's Login.
+- *password (str)*: Legendas Tv User's Password.
+
     Retorno: 
-                    JSON (dict) - The JSON dict with the search details
+- **JSON (dict)** - The JSON dict with the search details
 
 **[¹]: Argumento obrigatório.**
 **[²]: Argumento com default.**
 
-### Exemplo de consulta e output
-
-    python3 teste.py 
-
-# TODO -> Criar fluxo mermaid [![mermaid_flux](https://mermaid.ink/img/)
+# Camadas de desenvolvimento
 
 - **Camada App**: EntryPoints de consulta
 - **Camada Service**: Camada que contém tipos de captura, sessão de requisição, endpoints e variáveis globais
@@ -59,15 +53,16 @@ Em testes internos, com set de login e senha, criar arquivo **.env** com as info
 
 ### Buildando o docker
 
-$ docker build -t legendastvimg .
-$ docker run -d --name legendastvcontainer -p 80:80 legendastvimg
+    docker build -t legendastvimg . && docker run -d --name legendastvcontainer -p 80:80 legendastvimg
 
 ### Executando Teste
 
 Após fazer o build do Dockerfile e ter o container ativo, acesse o endereço em seu navegador: http://127.0.0.1/docs.
-Clique em POST/legendastv/term -> Try it out -> Digite o termo de pesquisa (Ex. "Simpsons") e seu usuário e senha do site Legendas TV
+
+Clique em POST/legendastv/term -> Try it out -> Digite o termo de pesquisa (Ex. "Simpsons") e seu usuário e senha do site Legendas TV.
+
 Clique em executar.
 
-### Verificando os Testes
+### Verificando os Testes Automatizados
 
 $ pytest {arquivo}

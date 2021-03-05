@@ -29,6 +29,7 @@ class ServiceLegendasTv:
         self.url_home_page = 'http://legendas.tv/'
         self.url_login = 'http://legendas.tv/login'
         self.url_do_search = 'http://legendas.tv/legenda/busca/'
+        self.url_download = 'http://legendas.tv/downloadarquivo/'
 
 
     def capture_by_term(self):

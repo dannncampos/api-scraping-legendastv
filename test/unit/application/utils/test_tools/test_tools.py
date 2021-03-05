@@ -69,8 +69,8 @@ def test_extract_date_check_raise(input_, expected):
 @pytest.mark.parametrize(
     "input_,expected",
     [
-        ('1/02/2019', '1/02/2019'),
-        ('01/02/2019', '01/02/2019')
+        ('1/02/2019', '2019-02-1'),
+        ('01/02/2019', '2019-02-01')
     ]
 )
 def test_extract_date_check_return(input_, expected):

@@ -22,6 +22,3 @@ def check_raise(context, function, *args, **kwargs):
             assert function(*args, **kwargs) is not None
         except AssertionError:
             assert function(*args, **kwargs) is None
-
-
-

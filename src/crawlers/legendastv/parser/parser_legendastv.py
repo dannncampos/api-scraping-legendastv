@@ -1,5 +1,6 @@
 """Parser do Crawler Legendas TV"""
 from lxml import html
+from src.application.utils.tools import extract_date, extract_only_integers
 
 
 def has_more_pages(html_text):
@@ -16,12 +17,13 @@ def has_more_pages(html_text):
     return False
 
 
-def extract_subtitle_info(html_text):
+def extract_subtitle_info(html_text, url_download):
     """
     Extract Subtitle Information
 
     Arguments:
         html_text {html} -- The entire Html of the page
+        url_download {string} -- The url path for download purpose
 
     Returns:
         list: list with subtitle's info
@@ -32,7 +34,7 @@ def extract_subtitle_info(html_text):
 
     for each_div in div_parts:
         paragraph = each_div.xpath("./p")
-        link_download = "http://legendas.tv/downloadarquivo/" + paragraph[0].xpath("./a/@href")[0].split('/')[2]
+        link_download = url_download + paragraph[0].xpath("./a/@href")[0].split('/')[2]
         title = paragraph[0].xpath("./a/text()")[0]
         author = paragraph[1].xpath("./a/text()")[0]
         more_info = paragraph[1].xpath("./text()")
@@ -46,9 +48,9 @@ def extract_subtitle_info(html_text):
             'link_download': link_download,
             'title': title,
             'author': author,
-            'quantity': quantity,
-            'rating': rating,
-            'sending_date': sending_date,
+            'quantity': extract_only_integers(quantity),
+            'rating': extract_only_integers(rating),
+            'sending_date': extract_date(sending_date),
             'language': language[0],
         }
 

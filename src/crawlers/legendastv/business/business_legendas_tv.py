@@ -18,11 +18,11 @@ class BusinessLegendasTv:
         page_number = 1
 
         results = []
-        for x in parser.extract_subtitle_info(result_page.text): results.append(x)
+        for x in parser.extract_subtitle_info(result_page.text, self.url_download): results.append(x)
 
         while (parser.has_more_pages(result_page.text)):
             result_page = broker.get_next_pages(self.url_do_search, self.host, self.term, self.session, page_number)
-            for x in parser.extract_subtitle_info(result_page.text): results.append(x)
+            for x in parser.extract_subtitle_info(result_page.text, self.url_download): results.append(x)
             page_number += 1
         
         return results

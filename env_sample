@@ -1,0 +1,5 @@
+DEFAULT_USER='' # Change it for Legendas Tv Default User Login
+DEFAULT_PASSWORD='' # Change it for Legendas Tv Default User Password
+BUCKET='' # Change it for Amazon AWS S3
+ACCESS_KEY='' # Change it for Amazon AWS S3
+SECRET_KEY='' # Change it for Amazon AWS S3
